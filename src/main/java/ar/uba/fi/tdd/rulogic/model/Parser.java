@@ -15,11 +15,9 @@ public class Parser {
         for (String query : content){
             query = query.replaceAll("\\s+","");
             if(Fact.isFact(query)){
-                //System.out.print("Agrego a la db (fact): " + query + "\n");
                 facts.add(new Fact(query));
             }
             else if(Rule.isRule(query)){
-                //System.out.print("Agrego a la db (rule): " + query + "\n");
                 rules.add(new Rule(query));
             }
             else {

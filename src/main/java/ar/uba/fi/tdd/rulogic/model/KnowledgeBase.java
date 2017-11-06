@@ -12,17 +12,14 @@ public class KnowledgeBase {
 
 	public boolean answer(String query) {
 		query = query.replaceAll("\\s+","");
-		//System.out.print("Answer: " + query + "\n");
+
 		if(Parser.isValidQuery(query)){
 
 			Fact fact = new Fact(query);
 			if(facts.contains(fact)){
 				return true;
 			}
-
 			String name = Parser.getQueryName(query);
-			//System.out.print(name);
-
 			Rule rule = new Rule(query);
 			if(rules.contains(rule)){
 				for(Rule r : rules){

@@ -26,12 +26,10 @@ public class Rule {
         String[] genericRuleArgs = getArguments(this.genericRule);
         String[] factsFromRule = this.genericRule.substring(this.genericRule.indexOf(":-") + 2).split("\\)\\W");
         for(String factStr : factsFromRule){
-            //System.out.print(factStr + ")." + "\n"); //TODO: Sacar
             factStr = factStr + ").";
             for(int i = 0; i < genericRuleArgs.length; i++){
                 factStr = factStr.replaceAll(genericRuleArgs[i], particularRuleArgs[i]);
             }
-            //System.out.print(factStr + "\n"); //TODO: Sacar
             Fact fact = new Fact(factStr);
             if(!facts.contains(fact)){
                 return false;

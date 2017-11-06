@@ -1,0 +1,13 @@
+friend(pepe, juan).
+friend(juan, franco).
+friend(franco, pedro).
+friend(miguel, tomas).
+friend(tomas, pablo).
+friend(gabriel, miguel).
+friend(marcos, martin).
+enemy(miguel, martin).
+enemy(gabriel, marcos).
+enemy(miguel, pepe).
+enemy(tomas, juan).
+group(X, Y, Z) :- friend(X, Y), friend(Y, Z).
+fight(X, Y, Z, W) :- friend(X, Y), friend(Z, W), enemy(X, Z), enemy(Y, W).
